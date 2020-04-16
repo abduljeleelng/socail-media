@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter, Route} from "react-router-dom";
 import { isAuthenticated } from "./";
-import {SignUp} from '../';
+import {SignIn} from '../';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <BrowserRouter>
@@ -11,7 +11,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
                 isAuthenticated() ? (
                     <Component {...props} />
                 ) : (
-                    <SignUp />
+                    <SignIn />
                 )
             }
         />

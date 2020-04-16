@@ -1,4 +1,6 @@
 import SignUp from './users/Signup';
+import SignIn from './users/SignIn';
+import Forget from './users/Forget';
 /***news feed componet  */
 import Chat from './newsfeed/Chat';
 import Friend from './newsfeed/Friend';
@@ -15,4 +17,4 @@ import TimeLine from './timeline/TimeLine';
 
 
 
-export {SignUp,Chat,Friend,Home,Image,People,Video, About,Albulm,FriendTimeLIne,TimeLine}
+export {SignUp,SignIn,Forget,Chat,Friend,Home,Image,People,Video, About,Albulm,FriendTimeLIne,TimeLine,}

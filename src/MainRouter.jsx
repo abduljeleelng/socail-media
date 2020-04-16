@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {  BrowserRouter, Route, Switch} from "react-router-dom";
 import PrivateRoute from './screen/auth/PrivateRoute';
-import {SignUp,Chat,Friend,Home,Image,People,Video,   About,Albulm,FriendTimeLIne,TimeLine} from './screen';
+import {SignUp,Forget,Chat,Friend,Home,Image,People,Video,About,Albulm,FriendTimeLIne,TimeLine} from './screen';
 //import {} from './screen'
 
 
@@ -22,7 +22,8 @@ export default class MainRouter extends Component {
                         <Route exact path="/about/:id" component={About} />
                         <Route exact path="/friend/:id" component={FriendTimeLIne} />
                         <Route exact path="/albulm/:id" component={Albulm} />
-                        <Route exact path="/bm" component={SignUp} />
+                        <Route exact path="/user/signup" component={SignUp} />
+                        <Route exact path="/user/forget" component={Forget} />
                     </Switch>
                 </BrowserRouter>
             </div>
