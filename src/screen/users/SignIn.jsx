@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Link,Redirect } from 'react-router-dom';
+import { Link,Redirect} from 'react-router-dom';
 import {signin, authenticate } from '../auth';
 
 function validateEmail(email) {
@@ -20,7 +20,7 @@ export default class SignIn extends Component {
     handleChange=email=>e=>{
         this.setState({[email]:e.target.value,error:'',message:''});
     };
-    signIn=e=>{
+    handleSignIn=e=>{
         e.preventDefault();
         this.setState({loading:true});
         const {email,password} = this.state;
@@ -83,25 +83,33 @@ export default class SignIn extends Component {
         <div className="col-md-6 bg-white pt-5">
           <div className="sign-in-from">
             <h1 className="mb-0">Sign in</h1>
+            <h6>{message}</h6>
+            <p>{error}</p>
             <form className="mt-4">
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email" />
+                <input type="email" onChange={this.handleChange("email")} value={email} className="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email" />
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
-                <Link to="/user/forget" onClick={()=>window.location.reload()} className="float-right">Forgot password? </Link>
-                <input type="password" className="form-control mb-0" id="exampleInputPassword1" placeholder="Password" />
+                <input type="password" onChange={this.handleChange("password")} value={password} className="form-control mb-0" id="exampleInputPassword1" placeholder="Password" />
               </div>
               <div className="d-inline-block w-100">
                 <div className="custom-control custom-checkbox d-inline-block mt-2 pt-1">
                   <input type="checkbox" className="custom-control-input" id="customCheck1" />
                   <label className="custom-control-label" htmlFor="customCheck1">Remember Me</label>
                 </div>
-                <button type="submit" className="btn btn-primary float-right">Sign in</button>
+                {
+                    loading ? ("Loading .."):
+                    (<button type="submit" onClick={this.handleSignIn} className="btn btn-primary float-right">Sign in</button>)
+                }
+              </div>
+              <div className="form-group">
+                  <br />
+                <Link to="/user/forget" onClick={()=>window.location.reload()} className="float-right">Forgot password? </Link>
               </div>
               <div className="sign-info">
-                <span className="dark-color d-inline-block line-height-2">Don't have an account? <Link to="/user/signup" onClick={()=>window.location.reload()}>Sign up </Link></span>
+                <span className="dark-color d-inline-block line-height-2">Don't have an account? <Link to="/user/signup" onClick={()=>window.location.reload()}  >Sign up </Link></span>
                 <ul className="iq-social-media">
                   <li><a href><i className="ri-facebook-box-line" /></a></li>
                   <li><a href><i className="ri-twitter-line" /></a></li>

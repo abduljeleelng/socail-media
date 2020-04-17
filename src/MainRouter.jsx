@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import {  BrowserRouter, Route, Switch} from "react-router-dom";
+import {  BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import PrivateRoute from './screen/auth/PrivateRoute';
 import {SignUp,Forget,Chat,Friend,Home,Image,People,Video,About,Albulm,FriendTimeLIne,TimeLine} from './screen';
 //import {} from './screen'
-
-
 
 export default class MainRouter extends Component {
     render() {
         return (
             <div>
-                <BrowserRouter>
+                <Router>
                     <Switch>  
                         <PrivateRoute exact path="/" component={Home}  />
                         <PrivateRoute exact path="/chat" component={Chat}  />
@@ -25,7 +23,7 @@ export default class MainRouter extends Component {
                         <Route exact path="/user/signup" component={SignUp} />
                         <Route exact path="/user/forget" component={Forget} />
                     </Switch>
-                </BrowserRouter>
+                </Router>
             </div>
         )
     }
