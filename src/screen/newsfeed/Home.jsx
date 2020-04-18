@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
 import logo from '../asset/img/logo.png';
-import {Follow, Footer,Create,Header, Active, Profile, Post} from './component';
+import {Follow, Footer,Create,Header, Active, Profile, Post, Story, Event, Birthday, Page} from './component';
 const user = {user:{_id:"89",firstName:"Yusuff"}}
 export default class Home extends Component {
   constructor(props){
@@ -13,58 +13,60 @@ export default class Home extends Component {
   };
     render() {
         return (
+
 <div>
-  <Header logo={logo} user={user} />
-  {/*Header End*/}
-  <div id="page-contents">
-    <div className="container">
-      <div className="row">
-        {/* Newsfeed Common Side Bar Left
-          ================================================= */}
-        <div className="col-md-3 static">
-          <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-             <Profile />
-          </ReactPlaceholder>
-          {/*news-feed links ends*/}
-          <div id="chat-block">
+  {/* loader Start */}
+  <div id="loading">
+    <div id="loading-center">
+    </div>
+  </div>
+  {/* loader END */}
+  {/* Wrapper Start */}
+  <div className="wrapper">
+    {/* Sidebar  */}
+
+    {/* TOP Nav Bar */}
+<Header />
+    {/* TOP Nav Bar END */}
+    {/* Right Sidebar Panel End*/}
+    {/* Page Content  */}
+    <div id="content-page" className="content-page">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-8 row m-0 p-0">
+            {/** new post */}
+            <Create />
+            {/**Post componet  */}
             <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-              <Active />
+            <Post />
+            </ReactPlaceholder>
+            </div>
+          <div className="col-lg-4">
+            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
+            <Story />
+            </ReactPlaceholder>
+            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
+            <Event />
+            </ReactPlaceholder>
+            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
+            <Birthday />
+            </ReactPlaceholder>
+            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
+            <Page />
             </ReactPlaceholder>
           </div>
-          {/*chat block ends*/}
-        </div>
-        <div className="col-md-7">
-          {/* Post Create Box ================================================= */}
-          <Create />
-
-
-            {/* Post Create Box End*/}
-          {/* Post Content================================================= */}
-          <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-            <Post />
-          </ReactPlaceholder>
-        </div>
-        {/* Newsfeed Common Side Bar Right
-          ================================================= */}
-        <div className="col-md-2 static">
-          <div className="suggestions" id="sticky-sidebar">
-            {/**who to follow component */}
-            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-              <Follow />
-            </ReactPlaceholder>
+          <div className="col-sm-12 text-center">
+            <img src="images/page-img/page-load-loader.gif" alt="loader" style={{height: 100}} />
           </div>
         </div>
       </div>
     </div>
   </div>
-  {/* Footer
-    ================================================= */}
-  <footer id="footer">
-    {/** news feeds footer  */}
-    <Footer logo={logo}  />
-  </footer>
+  {/* Wrapper END */}
+  {/* Footer */}
+<Footer />
+  {/* Footer END */}
 </div>
-
         )
     }
 }

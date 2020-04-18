@@ -1,50 +1,91 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 
 export default function Cover() {
     return (
-<div className="timeline-cover">
-  {/*Timeline Menu for Large Screens*/}
-  <div className="timeline-nav-bar hidden-sm hidden-xs">
-    <div className="row">
-      <div className="col-md-3">
-        <div className="profile-info">
-          <img src="http://placehold.it/300x300" alt="cover" className="img-responsive profile-photo" />
-          <h3>Sarah Cruiz</h3>
-          <p className="text-muted">Creative Director</p>
-        </div>
-      </div>
-      <div className="col-md-9">
-        <ul className="list-inline profile-menu">
-          <li><a href="timeline.html" className="active">Timeline</a></li>
-          <li><a href="timeline-about.html">About</a></li>
-          <li><a href="timeline-album.html">Album</a></li>
-          <li><a href="timeline-friends.html">Friends</a></li>
-        </ul>
-        <ul className="follow-me list-inline">
-          <li>1,299 people following her</li>
-          <li><button className="btn-primary">Add Friend</button></li>
-        </ul>
-      </div>
-    </div>
-  </div>{/*Timeline Menu for Large Screens End*/}
-  {/*Timeline Menu for Small Screens*/}
-  <div className="navbar-mobile hidden-lg hidden-md">
-    <div className="profile-info">
-      <img src="http://placehold.it/300x300" alt="Profile" className="img-responsive profile-photo" />
-      <h4>Sarah Cruiz</h4>
-      <p className="text-muted">Creative Director</p>
-    </div>
-    <div className="mobile-menu">
-      <ul className="list-inline">
-        <li><a href="timline.html" className="active">Timeline</a></li>
-        <li><a href="timeline-about.html">About</a></li>
-        <li><a href="timeline-album.html">Album</a></li>
-        <li><a href="timeline-friends.html">Friends</a></li>
-      </ul>
-      <button className="btn-primary">Add Friend</button>
-    </div>
-  </div>{/*Timeline Menu for Small Screens End*/}
-</div>
-
+      <Fragment>
+            <div className="col-sm-12">
+            <div className="iq-card">
+              <div className="iq-card-body profile-page p-0">
+                <div className="profile-header">
+                  <div className="cover-container">
+                    <img src="images/page-img/profile-bg1.jpg" alt="profile-bg" className="rounded img-fluid" />
+                    <ul className="header-nav d-flex flex-wrap justify-end p-0 m-0">
+                      <li><a href="javascript:void();"><i className="ri-pencil-line" /></a></li>
+                      <li><a href="javascript:void();"><i className="ri-settings-4-line" /></a></li>
+                    </ul>
+                  </div>
+                  <div className="user-detail text-center mb-3">
+                    <div className="profile-img">
+                      <img src="images/user/11.png" alt="profile-img" className="avatar-130 img-fluid" />
+                    </div>
+                    <div className="profile-detail">
+                      <h3 className>Bni Cyst</h3>
+                    </div>
+                  </div>
+                  <div className="profile-info p-4 d-flex align-items-center justify-content-between position-relative">
+                    <div className="social-links">
+                      <ul className="social-data-block d-flex align-items-center justify-content-between list-inline p-0 m-0">
+                        <li className="text-center pr-3">
+                          <a href="#"><img src="images/icon/08.png" className="img-fluid rounded" alt="facebook" /></a>
+                        </li>
+                        <li className="text-center pr-3">
+                          <a href="#"><img src="images/icon/09.png" className="img-fluid rounded" alt="Twitter" /></a>
+                        </li>
+                        <li className="text-center pr-3">
+                          <a href="#"><img src="images/icon/10.png" className="img-fluid rounded" alt="Instagram" /></a>
+                        </li>
+                        <li className="text-center pr-3">
+                          <a href="#"><img src="images/icon/11.png" className="img-fluid rounded" alt="Google plus" /></a>
+                        </li>
+                        <li className="text-center pr-3">
+                          <a href="#"><img src="images/icon/12.png" className="img-fluid rounded" alt="You tube" /></a>
+                        </li>
+                        <li className="text-center pr-3">
+                          <a href="#"><img src="images/icon/13.png" className="img-fluid rounded" alt="linkedin" /></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="social-info">
+                      <ul className="social-data-block d-flex align-items-center justify-content-between list-inline p-0 m-0">
+                        <li className="text-center pl-3">
+                          <h6>Posts</h6>
+                          <p className="mb-0">690</p>
+                        </li>
+                        <li className="text-center pl-3">
+                          <h6>Followers</h6>
+                          <p className="mb-0">206</p>
+                        </li>
+                        <li className="text-center pl-3">
+                          <h6>Following</h6>
+                          <p className="mb-0">100</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="iq-card">
+              <div className="iq-card-body p-0">
+                <div className="user-tabing">
+                  <ul className="nav nav-pills d-flex align-items-center justify-content-center profile-feed-items p-0 m-0">
+                    <li className="col-sm-3 p-0">
+                      <a className="nav-link active" data-toggle="pill" href="#timeline">Timeline</a>
+                    </li>
+                    <li className="col-sm-3 p-0">
+                      <a className="nav-link" data-toggle="pill" href="#about">About</a>
+                    </li>
+                    <li className="col-sm-3 p-0">
+                      <a className="nav-link" data-toggle="pill" href="#friends">friends</a>
+                    </li>
+                    <li className="col-sm-3 p-0">
+                      <a className="nav-link" data-toggle="pill" href="#photos">Photos</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      </Fragment>
     )
 }

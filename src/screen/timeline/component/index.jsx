@@ -3,5 +3,6 @@ import TimeLinePost from './TimeLInePost';
 import Activities from './Activities';
 import Abouts from './Abouts';
 import FriendList from './FriendList';
+import TimeLineEvent from './TimeLineEvent';
 
-export {Cover,TimeLinePost,Activities,Abouts,FriendList}
+export {Cover,TimeLinePost,Activities,Abouts,FriendList,TimeLineEvent}

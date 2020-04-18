@@ -10,4 +10,9 @@ import Post from './Post';
 import Messages from './messages';
 import Images from './Images';
 import Videos from './Videos';
-export {Follow,Footer,Create,Header,Active,Profile,Post,Peoples,Friends,Messages,Images,Videos}
+import Story from './Story';
+import Event from './Event';
+import Birthday from './Birthday';
+import Page from './Page';
+import Chat from './Chat';
+export {Follow,Footer,Create,Header,Active,Profile,Post,Peoples,Friends,Messages,Images,Videos,Story,Event,Birthday,Page,Chat}
