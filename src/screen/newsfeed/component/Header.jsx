@@ -8,8 +8,8 @@ export default function({logo,user}){
         <nav className="navbar navbar-expand-lg navbar-light p-0">
           <div className="iq-navbar-logo d-flex justify-content-between">
             <a href="index.html">
-              <img src="images/logo.png" className="img-fluid" alt />
-              <span>SocialV</span>
+              <img src={logo} className="img-fluid" alt="logo" />
+              <span>I am a Catholic</span>
             </a>
             <div className="iq-menu-bt align-self-center">
               <div className="wrapper-menu">
@@ -20,7 +20,7 @@ export default function({logo,user}){
           <div className="iq-search-bar">
             <form action="#" className="searchbox">
               <input type="text" className="text search-input" placeholder="Type here to search..." />
-              <a className="search-link" href="#"><i className="ri-search-line" /></a>
+              <Link className="search-link" to="/"><i className="ri-search-line" /></Link>
             </form>
           </div>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -29,20 +29,20 @@ export default function({logo,user}){
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto navbar-list">
               <li>
-                <a href="profile.html" className="iq-waves-effect d-flex align-items-center">
-                  <img src="images/user/1.jpg" className="img-fluid rounded-circle mr-3" alt="user" />
+                <Link href="profile.html" className="iq-waves-effect d-flex align-items-center">
+                  <img src={logo} className="img-fluid rounded-circle mr-3" alt="user" />
                   <div className="caption">
-                    <h6 className="mb-0 line-height">Bni Cyst</h6>
+                    <h6 className="mb-0 line-height"> Yusuff </h6>
                   </div>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="index.html" className="iq-waves-effect d-flex align-items-center">
+                <Link to="/" className="iq-waves-effect d-flex align-items-center">
                   <i className="ri-home-line" />
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="search-toggle iq-waves-effect" href="#"><i className="ri-group-line" /></a>
+                <Link className="search-toggle iq-waves-effect" to="/"><i className="ri-group-line" /></Link>
                 <div className="iq-sub-dropdown iq-sub-dropdown-large">
                   <div className="iq-card shadow-none m-0">
                     <div className="iq-card-body p-0 ">
@@ -53,7 +53,7 @@ export default function({logo,user}){
                         <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
                           <div className="d-flex align-items-center">
                             <div className>
-                              <img className="avatar-40 rounded" src="images/user/01.jpg" alt />
+                              <img className="avatar-40 rounded" src="images/user/01.jpg" alt="user" />
                             </div>
                             <div className="media-body ml-3">
                               <h6 className="mb-0 ">Jaques Amole</h6>
@@ -61,71 +61,21 @@ export default function({logo,user}){
                             </div>
                           </div>
                           <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
+                            <a href className="mr-3 btn btn-primary rounded">Confirm</a>
+                            <a href className="mr-3 btn btn-secondary rounded">Delete Request</a>
                           </div>
                         </div>
                       </div>
-                      <div className="iq-friend-request">
-                        <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center">
-                            <div className>
-                              <img className="avatar-40 rounded" src="images/user/02.jpg" alt />
-                            </div>
-                            <div className="media-body ml-3">
-                              <h6 className="mb-0 ">Lucy Tania</h6>
-                              <p className="mb-0">12  friends</p>
-                            </div>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="iq-friend-request">
-                        <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center">
-                            <div className>
-                              <img className="avatar-40 rounded" src="images/user/03.jpg" alt />
-                            </div>
-                            <div className="media-body ml-3">
-                              <h6 className="mb-0 ">Manny Petty</h6>
-                              <p className="mb-0">3  friends</p>
-                            </div>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="iq-friend-request">
-                        <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center">
-                            <div className>
-                              <img className="avatar-40 rounded" src="images/user/04.jpg" alt />
-                            </div>
-                            <div className="media-body ml-3">
-                              <h6 className="mb-0 ">Marsha Mello</h6>
-                              <p className="mb-0">15  friends</p>
-                            </div>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                          </div>
-                        </div>
-                      </div>
+      
                       <div className="text-center">
-                        <a href="#" className="mr-3 btn text-primary">View More Request</a>
+                        <a href className="mr-3 btn text-primary">View More Request</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
               <li className="nav-item">
-                <a href="#" className="search-toggle iq-waves-effect">
+                <a href className="search-toggle iq-waves-effect">
                   <div id="lottie-beil" />
                   <span className="bg-danger dots" />
                 </a>
@@ -135,10 +85,10 @@ export default function({logo,user}){
                       <div className="bg-primary p-3">
                         <h5 className="mb-0 text-white">All Notifications<small className="badge  badge-light float-right pt-1">4</small></h5>
                       </div>
-                      <a href="#" className="iq-sub-card">
+                      <a href className="iq-sub-card">
                         <div className="media align-items-center">
                           <div className>
-                            <img className="avatar-40 rounded" src="images/user/01.jpg" alt />
+                            <img className="avatar-40 rounded" src="images/user/01.jpg" alt="user" />
                           </div>
                           <div className="media-body ml-3">
                             <h6 className="mb-0 ">Emma Watson Bni</h6>
@@ -147,10 +97,10 @@ export default function({logo,user}){
                           </div>
                         </div>
                       </a>
-                      <a href="#" className="iq-sub-card">
+                      <a href className="iq-sub-card">
                         <div className="media align-items-center">
                           <div className>
-                            <img className="avatar-40 rounded" src="images/user/02.jpg" alt />
+                            <img className="avatar-40 rounded" src="images/user/02.jpg" alt="user" />
                           </div>
                           <div className="media-body ml-3">
                             <h6 className="mb-0 ">New customer is join</h6>
@@ -159,10 +109,10 @@ export default function({logo,user}){
                           </div>
                         </div>
                       </a>
-                      <a href="#" className="iq-sub-card">
+                      <a href className="iq-sub-card">
                         <div className="media align-items-center">
                           <div className>
-                            <img className="avatar-40 rounded" src="images/user/03.jpg" alt />
+                            <img className="avatar-40 rounded" src="images/user/03.jpg" alt="user" />
                           </div>
                           <div className="media-body ml-3">
                             <h6 className="mb-0 ">Two customer is left</h6>
@@ -171,10 +121,10 @@ export default function({logo,user}){
                           </div>
                         </div>
                       </a>
-                      <a href="#" className="iq-sub-card">
+                      <a href className="iq-sub-card">
                         <div className="media align-items-center">
                           <div className>
-                            <img className="avatar-40 rounded" src="images/user/04.jpg" alt />
+                            <img className="avatar-40 rounded" src="images/user/04.jpg" alt="user" />
                           </div>
                           <div className="media-body ml-3">
                             <h6 className="mb-0 ">New Mail from Fenny</h6>
@@ -188,7 +138,7 @@ export default function({logo,user}){
                 </div>
               </li>
               <li className="nav-item dropdown">
-                <a href="#" className="search-toggle iq-waves-effect">
+                <a href className="search-toggle iq-waves-effect">
                   <div id="lottie-mail" />
                   <span className="bg-primary count-mail" />
                 </a>

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
 import logo from '../asset/img/logo.png';
-import {Follow, Footer,Create,Header, Active, Profile, Post, Story, Event, Birthday, Page} from './component';
-const user = {user:{_id:"89",firstName:"Yusuff"}}
+import { Footer,Create,Header, Post, Story, Event, Birthday, Page} from './component';
+const user = {_id:"89",firstName:"Yusuff"};
 export default class Home extends Component {
   constructor(props){
     super(props);
@@ -26,7 +26,7 @@ export default class Home extends Component {
     {/* Sidebar  */}
 
     {/* TOP Nav Bar */}
-<Header />
+<Header  logo={logo} user={user} />
     {/* TOP Nav Bar END */}
     {/* Right Sidebar Panel End*/}
     {/* Page Content  */}
