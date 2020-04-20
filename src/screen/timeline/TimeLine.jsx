@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import {Header,Footer,Create, Chat} from '../newsfeed/component';
+import ReactPlaceholder from 'react-placeholder';
+import "react-placeholder/lib/reactPlaceholder.css";
+import {Header,Footer,Create,} from '../newsfeed/component';
 import logo from '../asset/img/logo.png';
-import {Cover,TimeLinePost, Activities, TimeLineEvent, Abouts, FriendList} from './component'
+import {Cover,TimeLinePost, TimeLineEvent, Abouts, FriendList} from './component'
 import Photos from './component/Photos';
 
 export default class TimeLine extends Component {
@@ -44,14 +46,18 @@ export default class TimeLine extends Component {
                       <Create />
 
                        {/**TimeLine Post */} 
-                       <TimeLinePost />
+                       <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
+                         <TimeLinePost />
+                       </ReactPlaceholder>
+                       
 
                     </div>
                   </div>
                 </div>
               </div>
-
+              <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
 <Abouts />
+</ReactPlaceholder>
 
 <FriendList />
 <Photos />
