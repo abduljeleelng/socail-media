@@ -2,18 +2,37 @@ import React, { Component } from 'react';
 import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
 import logo from '../asset/img/logo.png';
-import { Footer,Create,Header, Post, Story, Event, Birthday, Page} from './component';
-const user = {_id:"89",firstName:"Yusuff"};
+import { Footer, Header, Create, Post, Story, Event, Birthday, Page} from './component';
+import { isAuthenticated } from '../auth';
+import {posts, photoAPI} from './api';
+//const user = {"_id":"89","firstName":"AdeSare Olugbagi"};
 export default class Home extends Component {
   constructor(props){
     super(props);
     this.state={
-      ready:true,
+      ready:false,
+      postsfetch:false,
+      user:'',
+      posts:[],
     };
   };
-    render() {
-        return (
 
+  async componentDidMount(){
+    try {
+      this.setState({user:isAuthenticated().user});
+      posts().then(data=>{
+        if(data === undefined) return console.log("networ | server Error");
+        this.setState({posts:data,postsfetch:true});
+      });   
+    } catch (error) {console.log(error)}
+  }
+
+
+
+    render() {
+      const {user,postsfetch,posts} = this.state;
+      console.log(JSON.stringify(posts));
+        return (
 <div>
   {/* loader Start */}
   <div id="loading">
@@ -26,7 +45,7 @@ export default class Home extends Component {
     {/* Sidebar  */}
 
     {/* TOP Nav Bar */}
-<Header  logo={logo} user={user} />
+    <Header  logo={logo} user={user} />
     {/* TOP Nav Bar END */}
     {/* Right Sidebar Panel End*/}
     {/* Page Content  */}
@@ -37,10 +56,11 @@ export default class Home extends Component {
             {/** new post */}
             <Create />
             {/**Post componet  */}
-            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-            <Post />
+            <ReactPlaceholder showLoadingAnimation  rows={20} ready={postsfetch}>
+              <Post post={posts} user={user} />
             </ReactPlaceholder>
-            </div>
+          </div>
+          
           <div className="col-lg-4">
             <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
             <Story />

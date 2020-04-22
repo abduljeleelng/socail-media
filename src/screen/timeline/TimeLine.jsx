@@ -3,10 +3,16 @@ import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
 import {Header,Footer,Create,} from '../newsfeed/component';
 import logo from '../asset/img/logo.png';
-import {Cover,TimeLinePost, TimeLineEvent, Abouts, FriendList} from './component'
-import Photos from './component/Photos';
+import {Cover,TimeLinePost, TimeLineEvent, Abouts, FriendList,Photos} from './component';
+
 
 export default class TimeLine extends Component {
+  constructor(){
+    super();
+    this.state={
+      ready:true,
+    }
+  }
     render() {
         return (
             <Fragment>
@@ -22,7 +28,7 @@ export default class TimeLine extends Component {
     {/* Sidebar  */}
 
     {/* TOP Nav Bar */}
-    <Header />
+    <Header logo={logo} />
     {/* TOP Nav Bar END */}
     {/* Right Sidebar Panel for chat  Start 
        <Chat />

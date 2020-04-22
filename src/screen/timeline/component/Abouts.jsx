@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 export default function Abouts() {
     return (
         <Fragment>
-                          <div className="tab-pane fade" id="about" role="tabpanel">
+              <div className="tab-pane fade" id="about" role="tabpanel">
                 <div className="iq-card">
                   <div className="iq-card-body">
                     <div className="row">
@@ -126,7 +126,7 @@ export default function Abouts() {
                                   <h6>Paul Molive</h6>
                                   <p className="mb-0">Brothe</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                               <li className="d-flex mb-4 align-items-center">
                                 <div className="user-img img-fluid"><img src="images/user/02.jpg" alt="story-img" className="rounded-circle avatar-40" /></div>
@@ -134,7 +134,7 @@ export default function Abouts() {
                                   <h6>Anna Mull</h6>
                                   <p className="mb-0">Sister</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                               <li className="d-flex mb-4 align-items-center">
                                 <div className="user-img img-fluid"><img src="images/user/03.jpg" alt="story-img" className="rounded-circle avatar-40" /></div>
@@ -142,7 +142,7 @@ export default function Abouts() {
                                   <h6>Paige Turner</h6>
                                   <p className="mb-0">Cousin</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                             </ul>
                           </div>
@@ -161,7 +161,7 @@ export default function Abouts() {
                                   <h6>Themeforest</h6>
                                   <p className="mb-0">Web Designer</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                               <li className="d-flex mb-4 align-items-center">
                                 <div className="user-img img-fluid"><img src="images/user/02.jpg" alt="story-img" className="rounded-circle avatar-40" /></div>
@@ -169,7 +169,7 @@ export default function Abouts() {
                                   <h6>iqonicdesign</h6>
                                   <p className="mb-0">Web Developer</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                               <li className="d-flex mb-4 align-items-center">
                                 <div className="user-img img-fluid"><img src="images/user/03.jpg" alt="story-img" className="rounded-circle avatar-40" /></div>
@@ -177,7 +177,7 @@ export default function Abouts() {
                                   <h6>W3school</h6>
                                   <p className="mb-0">Designer</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                             </ul>
                             <h4 className="mb-3">Professional Skills</h4>
@@ -203,7 +203,7 @@ export default function Abouts() {
                                   <h6>Lorem ipsum</h6>
                                   <p className="mb-0">USA</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                             </ul>
                           </div>
@@ -216,7 +216,7 @@ export default function Abouts() {
                                   <h6>Georgia</h6>
                                   <p className="mb-0">Georgia State</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                               <li className="d-flex mb-4 align-items-center">
                                 <div className="user-img img-fluid"><img src="images/user/02.jpg" alt="story-img" className="rounded-circle avatar-40" /></div>
@@ -224,7 +224,7 @@ export default function Abouts() {
                                   <h6>Atlanta</h6>
                                   <p className="mb-0">Atlanta City</p>
                                 </div>
-                                <div className="edit-relation"><a href="javascript:void();"><i className="ri-edit-line mr-2" />Edit</a></div>
+                                <div className="edit-relation"><a href><i className="ri-edit-line mr-2" />Edit</a></div>
                               </li>
                             </ul>
                             <h4 className="mt-3 mb-3">Other Places Lived</h4>

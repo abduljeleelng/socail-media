@@ -10,8 +10,8 @@ export default function Cover() {
                   <div className="cover-container">
                     <img src="images/page-img/profile-bg1.jpg" alt="profile-bg" className="rounded img-fluid" />
                     <ul className="header-nav d-flex flex-wrap justify-end p-0 m-0">
-                      <li><a href="javascript:void();"><i className="ri-pencil-line" /></a></li>
-                      <li><a href="javascript:void();"><i className="ri-settings-4-line" /></a></li>
+                      <li><i className="ri-pencil-line" /></li>
+                      <li><i className="ri-settings-4-line" /></li>
                     </ul>
                   </div>
                   <div className="user-detail text-center mb-3">
@@ -26,22 +26,22 @@ export default function Cover() {
                     <div className="social-links">
                       <ul className="social-data-block d-flex align-items-center justify-content-between list-inline p-0 m-0">
                         <li className="text-center pr-3">
-                          <a href="#"><img src="images/icon/08.png" className="img-fluid rounded" alt="facebook" /></a>
+                          <a href><img src="images/icon/08.png" className="img-fluid rounded" alt="facebook" /></a>
                         </li>
                         <li className="text-center pr-3">
-                          <a href="#"><img src="images/icon/09.png" className="img-fluid rounded" alt="Twitter" /></a>
+                          <a href><img src="images/icon/09.png" className="img-fluid rounded" alt="Twitter" /></a>
                         </li>
                         <li className="text-center pr-3">
-                          <a href="#"><img src="images/icon/10.png" className="img-fluid rounded" alt="Instagram" /></a>
+                          <a href><img src="images/icon/10.png" className="img-fluid rounded" alt="Instagram" /></a>
                         </li>
                         <li className="text-center pr-3">
-                          <a href="#"><img src="images/icon/11.png" className="img-fluid rounded" alt="Google plus" /></a>
+                          <a href><img src="images/icon/11.png" className="img-fluid rounded" alt="Google plus" /></a>
                         </li>
                         <li className="text-center pr-3">
-                          <a href="#"><img src="images/icon/12.png" className="img-fluid rounded" alt="You tube" /></a>
+                          <a href><img src="images/icon/12.png" className="img-fluid rounded" alt="You tube" /></a>
                         </li>
                         <li className="text-center pr-3">
-                          <a href="#"><img src="images/icon/13.png" className="img-fluid rounded" alt="linkedin" /></a>
+                          <a href><img src="images/icon/13.png" className="img-fluid rounded" alt="linkedin" /></a>
                         </li>
                       </ul>
                     </div>
