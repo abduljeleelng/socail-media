@@ -4,8 +4,7 @@ import "react-placeholder/lib/reactPlaceholder.css";
 import logo from '../asset/img/logo.png';
 import { Footer, Header, Create, Post, Story, Event, Birthday, Page} from './component';
 import { isAuthenticated } from '../auth';
-import {posts, photoAPI} from './api';
-//const user = {"_id":"89","firstName":"AdeSare Olugbagi"};
+import {posts,} from './api';
 export default class Home extends Component {
   constructor(props){
     super(props);
@@ -26,12 +25,8 @@ export default class Home extends Component {
       });   
     } catch (error) {console.log(error)}
   }
-
-
-
     render() {
       const {user,postsfetch,posts} = this.state;
-      console.log(JSON.stringify(posts));
         return (
 <div>
   {/* loader Start */}

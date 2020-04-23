@@ -11,7 +11,7 @@ export default function Post({post, user}){
             post && post.length > 0  ? (
               post.map((post,index)=>{
                 return(
-                  <div className="col-sm-12">
+                  <div className="col-sm-12" key={index}>
                   <div className="iq-card iq-card-block iq-card-stretch iq-card-height">
                     <div className="iq-card-body">
                       <div className="user-post-data">
