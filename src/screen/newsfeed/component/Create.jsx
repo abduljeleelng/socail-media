@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {Link,Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import { isAuthenticated } from '../../auth';
 import {newPost} from '../api';
 
@@ -43,6 +43,7 @@ export default class Create extends Component {
     this.setState({loading:true});
     const token = isAuthenticated().token;
     const userId = isAuthenticated().user._id
+    //console.log(JSON.stringify(userId));
     newPost(userId,token,this.postData).then(data=>{
       if(data.error){
         console.log(data);
@@ -58,9 +59,9 @@ export default class Create extends Component {
     e.preventDefault();
   }
     render() {
-      const {title,body,gohome,reDirect,loading,photo,} = this.state;
-      const {profileImage,noProfileImage} = this.props;
-      const userId = isAuthenticated().user._id
+      const {body,gohome,reDirect,loading,} = this.state;
+      //const {profileImage,noProfileImage} = this.props;
+      //const userId = isAuthenticated().user._id
 
       if(gohome){ window.location.reload(false); };
       if(reDirect){ return <Redirect to="/" />};
@@ -78,15 +79,15 @@ export default class Create extends Component {
                     <div className="user-img">
                       <img src="images/user/1.jpg" alt="userimg" className="avatar-60 rounded-circle" />
                     </div>
-                    <form className="post-text ml-3 w-100" action="javascript:void();">
+                    <form className="post-text ml-3 w-100" action="">
                       <input type="text" className="form-control rounded" placeholder="Write something here..." style={{border: 'none'}} />
                     </form>
                   </div>
                   <hr />
                   <ul className="post-opt-block d-flex align-items-center list-inline m-0 p-0">
-                    <li className="iq-bg-primary rounded p-2 pointer mr-3"><a href /><img src="images/small/07.png" alt="icon" className="img-fluid" /> Photo/Video</li>
-                    <li className="iq-bg-primary rounded p-2 pointer mr-3"><a href/><img src="images/small/08.png" alt="icon" className="img-fluid" /> Tag Friend</li>
-                    <li className="iq-bg-primary rounded p-2 pointer mr-3"><a href /><img src="images/small/09.png" alt="icon" className="img-fluid" /> Feeling/Activity</li>
+                    <li className="iq-bg-primary rounded p-2 pointer mr-3"><a href><img src="images/small/07.png" alt="icon" className="img-fluid" /> </a>Photo/Video</li>
+                    <li className="iq-bg-primary rounded p-2 pointer mr-3"><a href><img src="images/small/08.png" alt="icon" className="img-fluid" /> </a>Tag Friend</li>
+                    <li className="iq-bg-primary rounded p-2 pointer mr-3"><a href><img src="images/small/09.png" alt="icon" className="img-fluid" /> </a> Feeling/Activity</li>
                     <li className="iq-bg-primary rounded p-2 pointer">
                       <div className="iq-card-header-toolbar d-flex align-items-center">
                         <div className="dropdown">
@@ -117,35 +118,35 @@ export default class Create extends Component {
                           <div className="user-img">
                             <img src="images/user/1.jpg" alt="userimg" className="avatar-60 rounded-circle img-fluid" />
                           </div>
-                          <form className="post-text ml-3 w-100" action="javascript:void();">
+                          <form className="post-text ml-3 w-100" action="">
                             <input type="text" value={body} onChange={this.handleChange("body")} className="form-control rounded" placeholder="Write something here..." style={{border: 'none'}} />
                           </form>
                         </div>
                         <hr />
                         <ul className="d-flex flex-wrap align-items-center list-inline m-0 p-0">
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><input type="file" accept="image/*" onChange={this.handleChange("photo")} /><img src="images/small/07.png" alt="icon" className="img-fluid" />  Photo/Video</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><input type="file" accept="image/*" onChange={this.handleChange("photo")} style={{color:'#29324F',backgroundColor:'#29324F'}} /><img src="images/small/07.png" alt="icon" className="img-fluid" /> Photo/Video</div>
                           </li>
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><a href="#" /><img src="images/small/08.png" alt="icon" className="img-fluid" /> Tag Friend</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><img src="images/small/08.png" alt="icon" className="img-fluid" /> Tag Friend</div>
                           </li>
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><a href="#" /><img src="images/small/09.png" alt="icon" className="img-fluid" /> Feeling/Activity</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><img src="images/small/09.png" alt="icon" className="img-fluid" /> Feeling/Activity</div>
                           </li>
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><a href="#" /><img src="images/small/10.png" alt="icon" className="img-fluid" /> Check in</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><img src="images/small/10.png" alt="icon" className="img-fluid" /> Check in</div>
                           </li>
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><a href="#" /><img src="images/small/11.png" alt="icon" className="img-fluid" /> Live Video</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><img src="images/small/11.png" alt="icon" className="img-fluid" /> Live Video</div>
                           </li>
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><a href="#" /><img src="images/small/12.png" alt="icon" className="img-fluid" /> Gif</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><img src="images/small/12.png" alt="icon" className="img-fluid" /> Gif</div>
                           </li>
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><a href="#" /><img src="images/small/13.png" alt="icon" className="img-fluid" /> Watch Party</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><img src="images/small/13.png" alt="icon" className="img-fluid" /> Watch Party</div>
                           </li>
                           <li className="col-md-6 mb-3">
-                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><a href="#" /><img src="images/small/14.png" alt="icon" className="img-fluid" /> Play with Friends</div>
+                            <div className="iq-bg-primary rounded p-2 pointer mr-3"><img src="images/small/14.png" alt="icon" className="img-fluid" /> Play with Friends</div>
                           </li>
                         </ul>
                         <hr />
@@ -163,7 +164,7 @@ export default class Create extends Component {
                                   <span className="btn btn-primary">Friend</span>
                                 </span>
                                 <div className="dropdown-menu m-0 p-0">
-                                  <a className="dropdown-item p-3" href="#">
+                                  <a className="dropdown-item p-3" href>
                                     <div className="d-flex align-items-top">
                                       <div className="icon font-size-20"><i className="ri-save-line" /></div>
                                       <div className="data ml-2">
@@ -172,7 +173,7 @@ export default class Create extends Component {
                                       </div>
                                     </div>
                                   </a>
-                                  <a className="dropdown-item p-3" href="#">
+                                  <a className="dropdown-item p-3" href>
                                     <div className="d-flex align-items-top">
                                       <div className="icon font-size-20"><i className="ri-close-circle-line" /></div>
                                       <div className="data ml-2">
@@ -181,7 +182,7 @@ export default class Create extends Component {
                                       </div>
                                     </div>
                                   </a>
-                                  <a className="dropdown-item p-3" href="#">
+                                  <a className="dropdown-item p-3" href>
                                     <div className="d-flex align-items-top">
                                       <div className="icon font-size-20"><i className="ri-user-unfollow-line" /></div>
                                       <div className="data ml-2">
@@ -190,7 +191,7 @@ export default class Create extends Component {
                                       </div>
                                     </div>
                                   </a>
-                                  <a className="dropdown-item p-3" href="#">
+                                  <a className="dropdown-item p-3" href>
                                     <div className="d-flex align-items-top">
                                       <div className="icon font-size-20"><i className="ri-notification-line" /></div>
                                       <div className="data ml-2">
@@ -204,7 +205,7 @@ export default class Create extends Component {
                             </div>
                           </div>
                         </div>
-                        {loading ? ("loading..") : ( <button type="submit" onClick={this.handleCreatePost} className="btn btn-primary d-block w-100 mt-3">Post</button>)}
+                        {loading ? ("loading.....") : ( <button type="submit" onClick={this.handleCreatePost} className="btn btn-primary d-block w-100 mt-3">Post</button>)}
                       </div>
                     </div>
                   </div>

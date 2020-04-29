@@ -5,5 +5,7 @@ import Post from './Post';
 import Story from './Story';
 import Event from './Event';
 import Birthday from './Birthday';
+import BirthdayMonth from './BirthdayMonth';
 import Page from './Page';
-export {Footer,Create,Header,Post,Story,Event,Birthday,Page}
+import Comment from './Comment';
+export {Footer,Create,Header,Post,Story,Event,Birthday,Page,Comment,BirthdayMonth}

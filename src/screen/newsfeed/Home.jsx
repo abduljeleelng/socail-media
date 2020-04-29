@@ -2,17 +2,23 @@ import React, { Component } from 'react';
 import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
 import logo from '../asset/img/logo.png';
-import { Footer, Header, Create, Post, Story, Event, Birthday, Page} from './component';
+import noProfile from '../timeline/img/profile.png'
+import { Footer, Header, Create, Post, Story, Birthday, BirthdayMonth} from './component';
 import { isAuthenticated } from '../auth';
-import {posts,} from './api';
+import {posts,status,birthday,birthdayMonth} from './api';
 export default class Home extends Component {
   constructor(props){
     super(props);
     this.state={
       ready:false,
       postsfetch:false,
+      statusfetch:false,
+      birthdayfetch:false,
       user:'',
       posts:[],
+      status:[],
+      birthday:[],
+      birthdayMonth:[],
     };
   };
 
@@ -22,52 +28,46 @@ export default class Home extends Component {
       posts().then(data=>{
         if(data === undefined) return console.log("networ | server Error");
         this.setState({posts:data,postsfetch:true});
-      });   
+      });
+      status().then(data=>{
+        if(data === undefined) return console.log("networ | server Error");
+        this.setState({status:data,statusfetch:true});
+      });
+      birthday().then(data=>{
+        if(data === undefined) return console.log("networ | server Error");
+        this.setState({birthday:data,birthdayfetch:true});
+      });
+      birthdayMonth().then(data=>{
+        if(data === undefined) return console.log("networ | server Error");
+        this.setState({birthdayMonth:data,birthdayfetch:true});
+      });
     } catch (error) {console.log(error)}
   }
     render() {
-      const {user,postsfetch,posts} = this.state;
+      const {user,postsfetch,posts,status, statusfetch,birthdayfetch,birthday,birthdayMonth} = this.state;
+      ///console.log(JSON.stringify({birthday,birthdayMonth}))
         return (
 <div>
-  {/* loader Start */}
-  <div id="loading">
-    <div id="loading-center">
-    </div>
-  </div>
-  {/* loader END */}
-  {/* Wrapper Start */}
   <div className="wrapper">
-    {/* Sidebar  */}
-
-    {/* TOP Nav Bar */}
-    <Header  logo={logo} user={user} />
-    {/* TOP Nav Bar END */}
-    {/* Right Sidebar Panel End*/}
-    {/* Page Content  */}
+    <Header  logo={logo} user={user} noProfile={noProfile} profile={noProfile} />
     <div id="content-page" className="content-page">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 row m-0 p-0">
-            {/** new post */}
             <Create />
-            {/**Post componet  */}
             <ReactPlaceholder showLoadingAnimation  rows={20} ready={postsfetch}>
               <Post post={posts} user={user} />
             </ReactPlaceholder>
           </div>
-          
           <div className="col-lg-4">
-            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-            <Story />
+            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={statusfetch}>
+              <Story status={status} />
             </ReactPlaceholder>
-            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-            <Event />
+            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={birthdayfetch}>
+            <Birthday b={birthday} />
             </ReactPlaceholder>
-            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-            <Birthday />
-            </ReactPlaceholder>
-            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-            <Page />
+            <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={birthdayfetch}>
+            <BirthdayMonth data={birthdayMonth} />
             </ReactPlaceholder>
           </div>
           <div className="col-sm-12 text-center">

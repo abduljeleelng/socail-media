@@ -1,6 +1,4 @@
-import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { Component, Fragment } from 'react';
 export default class Forget extends Component {
     constructor(props){
         super(props);
@@ -23,12 +21,6 @@ export default class Forget extends Component {
         return (
             <Fragment>
 <div>
-  <div id="loading">
-    <div id="loading-center">
-    </div>
-  </div>
-  {/* loader END */}
-  {/* Sign in Start */}
   <section className="sign-in-page">
     <div id="container-inside">
       <div id="circle-small" />
@@ -78,7 +70,7 @@ export default class Forget extends Component {
                 }
               </div>
               <div className="sign-info">
-                <span className="dark-color d-inline-block line-height-2">Don't have an account? <Link to="/user/signup">Sign up</Link></span>
+                <span className="dark-color d-inline-block line-height-2">Don't have an account? <a href="/user/signup">Sign up</a></span>
                 <ul className="iq-social-media">
                   <li><a href><i className="ri-facebook-box-line" /></a></li>
                   <li><a href><i className="ri-twitter-line" /></a></li>

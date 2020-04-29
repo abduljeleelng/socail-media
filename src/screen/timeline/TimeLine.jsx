@@ -4,41 +4,101 @@ import "react-placeholder/lib/reactPlaceholder.css";
 import {Header,Footer,Create,} from '../newsfeed/component';
 import logo from '../asset/img/logo.png';
 import {Cover,TimeLinePost, TimeLineEvent, Abouts, FriendList,Photos} from './component';
-
+import {postBy} from '../newsfeed/api';
+import {user} from './api'
+import { isAuthenticated } from '../auth';
 
 export default class TimeLine extends Component {
   constructor(){
     super();
     this.state={
-      ready:true,
+      ready:false,
+      user:'',
+      posts:[],
+      about:'',
+    }
+  };
+  componentDidMount(){
+    const userId  = this.props.match.params.userId
+    this.setState({userId:userId,user:isAuthenticated().user});
+    postBy(userId).then((data,err)=>{
+        if(data.error){
+           console.log(data.error)
+        }else{
+        this.setState({posts:data.posts,});
+        }
+    });
+    user(userId).then(data=>{
+      if(data.error){return console.log(data.error)}
+      this.setState({about:data,user:data})
+    })
+
+    this.setState({ready:true});
+    /**
+     *     userList().then(data=>{
+      if(data.error){
+        return console.log(data.error)
+      }
+      this.setState({user:data.user});
+    });
+    user(userId).then(data=>{
+      if(data.error){return console.log(data.error)}
+      this.setState({about:data})
+    })
+     * 
+     */
+
+  }
+  componentDidUpdate(prevProps,prevState){
+    if(this.props.match.params.userId !== this.state.userId){
+      this.setState({ready:true});
+      const userId  = this.props.match.params.userId;
+      this.setState({userId:userId});
+      postBy(userId).then((data,err)=>{
+          if(data.error){
+             console.log(data.error)
+          }else{
+          this.setState({post:data.posts,ready:true});
+          }
+      });
+      user(userId).then(data=>{
+        if(data.error){return console.log(data.error)}
+        this.setState({about:data})
+      })
+
+      /***
+       *userList().then(data=>{
+        if(data.error){
+          return console.log(data.error)
+        }
+        this.setState({user:data.user});
+      });
+
+       * 
+       */
+
     }
   }
     render() {
+      const {user,posts,about}=this.state;
         return (
             <Fragment>
 <div>
-  {/* loader Start */}
+ 
   <div id="loading">
     <div id="loading-center">
     </div>
   </div>
-  {/* loader END */}
-  {/* Wrapper Start */}
-  <div className="wrapper">
-    {/* Sidebar  */}
 
-    {/* TOP Nav Bar */}
-    <Header logo={logo} />
-    {/* TOP Nav Bar END */}
-    {/* Right Sidebar Panel for chat  Start 
-       <Chat />
-    {/* Right Sidebar Panel End*/}
-    {/* Page Content  */}
+  <div className="wrapper">
+
+    <Header logo={logo} user={user} />
+
     <div id="content-page" className="content-page">
       <div className="container">
         <div className="row">
           {/****cover profile  */}
-          <Cover />
+          <Cover user={about} posts={posts} />
           <div className="col-sm-12">
             <div className="tab-content">
               <div className="tab-pane fade active show" id="timeline" role="tabpanel">
@@ -52,21 +112,18 @@ export default class TimeLine extends Component {
                       <Create />
 
                        {/**TimeLine Post */} 
-                       <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-                         <TimeLinePost />
-                       </ReactPlaceholder>
-                       
-
+                      <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
+                        <TimeLinePost posts={posts} />
+                      </ReactPlaceholder>
                     </div>
                   </div>
                 </div>
               </div>
               <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
-<Abouts />
-</ReactPlaceholder>
-
-<FriendList />
-<Photos />
+                 <Abouts about={about} />
+              </ReactPlaceholder>
+              <FriendList />
+              <Photos />
             </div>
           </div>
           <div className="col-sm-12 text-center">
@@ -76,8 +133,6 @@ export default class TimeLine extends Component {
       </div>
     </div>
   </div>
-  {/* Wrapper END */}
-  {/* Footer */}
 <Footer />
 </div>
 

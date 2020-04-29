@@ -47,7 +47,7 @@ export const setName = (name, next) => {
 export const signout = next => {
     if (typeof window !== "undefined") localStorage.removeItem("jwt");
     next();
-    return fetch(`${API}/signout`, {
+    /*return fetch(`${API}/signout`, {
         method: "GET"
     })
         .then(response => {
@@ -55,6 +55,7 @@ export const signout = next => {
             return response.json();
         })
         .catch(err => console.log(err));
+        */
 };
 
 export const isAuthenticated = () => {

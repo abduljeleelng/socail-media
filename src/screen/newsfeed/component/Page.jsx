@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 export default function Page() {
     return (
         <Fragment>
-                        <div className="iq-card">
+              <div className="iq-card">
               <div className="iq-card-header d-flex justify-content-between">
                 <div className="iq-header-title">
                   <h4 className="card-title">Suggested Pages</h4>
@@ -14,11 +14,11 @@ export default function Page() {
                       <i className="ri-more-fill" />
                     </span>
                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01" style={{}}>
-                      <a className="dropdown-item" href="#"><i className="ri-eye-fill mr-2" />View</a>
-                      <a className="dropdown-item" href="#"><i className="ri-delete-bin-6-fill mr-2" />Delete</a>
-                      <a className="dropdown-item" href="#"><i className="ri-pencil-fill mr-2" />Edit</a>
-                      <a className="dropdown-item" href="#"><i className="ri-printer-fill mr-2" />Print</a>
-                      <a className="dropdown-item" href="#"><i className="ri-file-download-fill mr-2" />Download</a>
+                      <a className="dropdown-item" href><i className="ri-eye-fill mr-2" />View</a>
+                      <a className="dropdown-item" href><i className="ri-delete-bin-6-fill mr-2" />Delete</a>
+                      <a className="dropdown-item" href><i className="ri-pencil-fill mr-2" />Edit</a>
+                      <a className="dropdown-item" href><i className="ri-printer-fill mr-2" />Print</a>
+                      <a className="dropdown-item" href><i className="ri-file-download-fill mr-2" />Download</a>
                     </div>
                   </div>
                 </div>
@@ -33,8 +33,8 @@ export default function Page() {
                         <p className="mb-0">Lorem Ipsum</p>
                       </div>
                     </div>
-                    <img src="images/small/img-1.jpg" className="img-fluid rounded" alt="Responsive image" />
-                    <div className="mt-3"><a href="#" className="btn d-block"><i className="ri-thumb-up-line mr-2" /> Like Page</a></div>
+                    <img src="images/small/img-1.jpg" className="img-fluid rounded" alt="Responsive" />
+                    <div className="mt-3"><a href className="btn d-block"><i className="ri-thumb-up-line mr-2" /> Like Page</a></div>
                   </li>
                   <li className>
                     <div className="d-flex align-items-center mb-3">

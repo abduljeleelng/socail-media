@@ -14,11 +14,11 @@ export default function Event() {
                       <i className="ri-more-fill" />
                     </span>
                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style={{}}>
-                      <a className="dropdown-item" href="#"><i className="ri-eye-fill mr-2" />View</a>
-                      <a className="dropdown-item" href="#"><i className="ri-delete-bin-6-fill mr-2" />Delete</a>
-                      <a className="dropdown-item" href="#"><i className="ri-pencil-fill mr-2" />Edit</a>
-                      <a className="dropdown-item" href="#"><i className="ri-printer-fill mr-2" />Print</a>
-                      <a className="dropdown-item" href="#"><i className="ri-file-download-fill mr-2" />Download</a>
+                      <a className="dropdown-item" href><i className="ri-eye-fill mr-2" />View</a>
+                      <a className="dropdown-item" href><i className="ri-delete-bin-6-fill mr-2" />Delete</a>
+                      <a className="dropdown-item" href><i className="ri-pencil-fill mr-2" />Edit</a>
+                      <a className="dropdown-item" href><i className="ri-printer-fill mr-2" />Print</a>
+                      <a className="dropdown-item" href><i className="ri-file-download-fill mr-2" />Download</a>
                     </div>
                   </div>
                 </div>

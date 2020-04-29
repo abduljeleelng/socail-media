@@ -133,3 +133,48 @@ export const uncomment = (userId, token, postId, comment) => {
         })
         .catch(err => console.log(err));
 };
+
+/** status */
+export const status = ()=>{
+    return fetch(`${API}/status/`,{method:"GET"})
+    .then(response=>{
+        return response.json();
+    })
+    .catch(error=>{console.log(error)})
+};
+export const statusBy = (userId)=>{
+    return fetch(`${API}/status/${userId}`,{method:"GET"})
+    .then(response=>{
+        return response.json();
+    })
+    .catch(error=>{console.log(error)})
+};
+export const createStatus = (userId,token,status) =>{
+    return fetch(`${API}/status/${userId}`,
+    {method:"POST",
+    headers:{
+        Accept:"application/json",
+        Authorization:`Bearer ${token}`
+    },
+    body:status
+})
+.then(response=>{
+    return response.json();
+})
+.catch(error=>console.log(error))
+}
+/**** Birthday */
+export const birthday = ()=>{
+    return fetch(`${API}/birthday/`,{method:"GET"})
+    .then(response=>{
+        return response.json();
+    })
+    .catch(error=>{console.log(error)})
+};
+export const birthdayMonth = ()=>{
+    return fetch(`${API}/birthday/month`,{method:"GET"})
+    .then(response=>{
+        return response.json();
+    })
+    .catch(error=>{console.log(error)})
+};
