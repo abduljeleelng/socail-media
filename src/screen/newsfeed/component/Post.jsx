@@ -10,7 +10,7 @@ export default class Post extends Component{
 
 
    render(){
-    const {post, user} = this.props;
+    const {post} = this.props;
       return(
           <Fragment>
             {

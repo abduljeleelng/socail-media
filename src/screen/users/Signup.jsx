@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import SweetAlert from 'sweetalert2-react';
 import { signup} from '../auth';
 
 
@@ -20,11 +21,12 @@ export default class Signup extends Component {
       day:'',
       month:'',
       year:'',
-      gender:'Unknow',
-      city:'city',
-      country:'country',
+      gender:'',
+      city:'',
+      country:'',
       message:'',
       redirecTo:false,
+      show:false,
     };
   };
   handleChange=email=>e=>{
@@ -36,18 +38,17 @@ export default class Signup extends Component {
     const {email,password,firstName,lastName,day,month,year,gender,city,country} = this.state;
     const age = `${day}/${month}/${year}`;
     const user = {email,password,firstName,lastName,day,month,year,gender,city,country,age,};
-    console.log(JSON.stringify(user));
     if(validateEmail(email)){
       signup(user).then(data=>{
-        if(data === undefined || data === null) return this.setState({error:"networ error || internal server errors"})
-        if(data.error){return this.setState({error:data.error})}
-        this.setState({loading:false,message:data.messages,redirecTo:true,error:''});
+        if(data === undefined || data === null){ this.setState({error:"networ error || internal server errors",show:false})}
+        if(data.errors) return this.setState({error:data.errors,show:false});
+        this.setState({loading:false,message:data.messages,show:true,});
       });
     }
     return this.setState({loading:false, error:"Enter Valid email address"});
   }
     render() {
-      const {loading,error,email,password,firstName,lastName,day,month,year,gender,city,country,message,redirecTo} = this.state;
+      const {loading,error,email,password,firstName,lastName,day,month,year,gender,city,country,message,redirecTo,show} = this.state;
       if(redirecTo){return <Redirect to="/" />}
         return (
           <Fragment>
@@ -61,6 +62,13 @@ export default class Signup extends Component {
       <div id="circle-xxlarge" />
     </div>
         */}
+
+<SweetAlert
+        show={show}
+        title="Notification"
+        text={message}
+        onConfirm={() => this.setState({ show:false,redirecTo:true})}
+/>
     <div className="container p-0">
       <div className="row no-gutters">
         <div className="col-md-6 text-center">
@@ -89,7 +97,6 @@ export default class Signup extends Component {
         </div>
         <div className="col-md-6 bg-white">
           <div className="sign-in-from">
-            <h2 className="text-success">{message}</h2>
             <h5 className="text-danger">{error}</h5>
             <form className="">
               <div className="form-group">

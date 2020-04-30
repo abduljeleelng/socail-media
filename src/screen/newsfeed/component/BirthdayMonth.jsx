@@ -17,7 +17,7 @@ export default function BirthdayMonth(data) {
                                 <li className="d-flex mb-4 align-items-center" key={i}>
                                     <img src="images/user/01.jpg" alt="story-img" className="rounded-circle img-fluid" />
                                     <div className="stories-data ml-3">
-                                        <h5>{b.firstName} {b.firstName}</h5>
+                                        <h5>{b.firstName} {b.lastName}</h5>
                                         <p className="mb-0">this Month</p>
                                     </div>
                                 </li>
