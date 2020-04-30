@@ -26,7 +26,7 @@ export default function BirthdayMonth(data) {
                         ))
                         :
                         <li className="d-flex mb-4 align-items-center">
-                        <img src="images/user/01.jpg" alt="story-img" className="rounded-circle img-fluid" />
+                        <img src="" alt="" className="rounded-circle img-fluid" />
                         <div className="stories-data ml-3">
                           <h5>No Birthday party this Month</h5>
                           <p className="mb-0">MOnth</p>
