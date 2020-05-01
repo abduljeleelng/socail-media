@@ -77,10 +77,7 @@ export default class Home extends Component {
       </div>
     </div>
   </div>
-  {/* Wrapper END */}
-  {/* Footer */}
 <Footer />
-  {/* Footer END */}
 </div>
         )
     }

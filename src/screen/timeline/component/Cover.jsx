@@ -34,6 +34,10 @@ export default function Cover({user,posts}) {
                            <p className="mb-0">{posts.length}</p>
                         </li>
                         <li className="text-center pl-3">
+                          <h6>friends</h6>
+                           <p className="mb-0">{user && user.friends.length}</p>
+                        </li>
+                        <li className="text-center pl-3">
                           <h6>Followers</h6>
                           <p className="mb-0">{user && user.followers.length}</p>
                         </li>

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-export default function Photos() {
+export default function Photos({photo}) {
     return (
         <Fragment>
                 <div className="tab-pane fade" id="photos" role="tabpanel">
@@ -12,9 +12,10 @@ export default function Photos() {
                         <li>
                           <a className="nav-link active" data-toggle="pill" href="#photosofyou">Photos of You</a>
                         </li>
-                        <li>
+                        {/*
+                          <li>
                           <a className="nav-link" data-toggle="pill" href="#your-photos">Your Photos</a>
-                        </li>
+                        </li>*/}
                       </ul>
                       <div className="tab-content">
                         <div className="tab-pane fade active show" id="photosofyou" role="tabpanel">
@@ -22,7 +23,8 @@ export default function Photos() {
                             <div className="row">
                               <div className="col-md-6 col-lg-3 mb-3">
                                 <div className="user-images position-relative overflow-hidden">
-                                  <a href>
+                                  <h2> No Photo </h2>
+{  /*                                <a href>
                                     <img src="images/page-img/51.jpg" className="img-fluid rounded" alt="Responsive" />
                                   </a>
                                   <div className="image-hover-data">
@@ -35,108 +37,7 @@ export default function Photos() {
                                     </div>
                                   </div>
                                   <a href className="image-edit-btn" data-toggle="tooltip" data-placement="top" title data-original-title="Edit or Remove"><i className="ri-edit-2-fill" /></a>
-                                </div>
-                              </div>
-                              <div className="col-md-6 col-lg-3 mb-3">
-                                <div className="user-images position-relative overflow-hidden">
-                                  <a href>
-                                    <img src="images/page-img/52.jpg" className="img-fluid rounded" alt="Responsive" />
-                                  </a>
-                                  <div className="image-hover-data">
-                                    <div className="product-elements-icon">
-                                      <ul className="d-flex align-items-center m-0 p-0 list-inline">
-                                        <li><a href className="pr-3 text-white"> 60 <i className="ri-thumb-up-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 30 <i className="ri-chat-3-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 10 <i className="ri-share-forward-line" /> </a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <a href className="image-edit-btn" data-toggle="tooltip" data-placement="top" title data-original-title="Edit or Remove"><i className="ri-edit-2-fill" /></a>
-                                </div>
-                              </div>
-                              <div className="col-md-6 col-lg-3 mb-3">
-                                <div className="user-images position-relative overflow-hidden">
-                                  <a href>
-                                    <img src="images/page-img/53.jpg" className="img-fluid rounded" alt="Responsive" />
-                                  </a>
-                                  <div className="image-hover-data">
-                                    <div className="product-elements-icon">
-                                      <ul className="d-flex align-items-center m-0 p-0 list-inline">
-                                        <li><a href className="pr-3 text-white"> 60 <i className="ri-thumb-up-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 30 <i className="ri-chat-3-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 10 <i className="ri-share-forward-line" /> </a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <a href className="image-edit-btn" data-toggle="tooltip" data-placement="top" title data-original-title="Edit or Remove"><i className="ri-edit-2-fill" /></a>
-                                </div>
-                              </div>
-                              <div className="col-md-6 col-lg-3 mb-3">
-                                <div className="user-images position-relative overflow-hidden">
-                                  <a href>
-                                    <img src="images/page-img/54.jpg" className="img-fluid rounded" alt="Responsive" />
-                                  </a>
-                                  <div className="image-hover-data">
-                                    <div className="product-elements-icon">
-                                      <ul className="d-flex align-items-center m-0 p-0 list-inline">
-                                        <li><a href className="pr-3 text-white"> 60 <i className="ri-thumb-up-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 30 <i className="ri-chat-3-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 10 <i className="ri-share-forward-line" /> </a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <a href className="image-edit-btn" data-toggle="tooltip" data-placement="top" title data-original-title="Edit or Remove"><i className="ri-edit-2-fill" /></a>
-                                </div>
-                              </div>
-                              <div className="col-md-6 col-lg-3 mb-3">
-                                <div className="user-images position-relative overflow-hidden">
-                                  <a href>
-                                    <img src="images/page-img/55.jpg" className="img-fluid rounded" alt="Responsive" />
-                                  </a>
-                                  <div className="image-hover-data">
-                                    <div className="product-elements-icon">
-                                      <ul className="d-flex align-items-center m-0 p-0 list-inline">
-                                        <li><a href className="pr-3 text-white"> 60 <i className="ri-thumb-up-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 30 <i className="ri-chat-3-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 10 <i className="ri-share-forward-line" /> </a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <a href className="image-edit-btn" data-toggle="tooltip" data-placement="top" title data-original-title="Edit or Remove"><i className="ri-edit-2-fill" /></a>
-                                </div>
-                              </div>
-                              <div className="col-md-6 col-lg-3 mb-3">
-                                <div className="user-images position-relative overflow-hidden">
-                                  <a href>
-                                    <img src="images/page-img/56.jpg" className="img-fluid rounded" alt="Responsive" />
-                                  </a>
-                                  <div className="image-hover-data">
-                                    <div className="product-elements-icon">
-                                      <ul className="d-flex align-items-center m-0 p-0 list-inline">
-                                        <li><a href className="pr-3 text-white"> 60 <i className="ri-thumb-up-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 30 <i className="ri-chat-3-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 10 <i className="ri-share-forward-line" /> </a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <a href className="image-edit-btn" data-toggle="tooltip" data-placement="top" title data-original-title="Edit or Remove"><i className="ri-edit-2-fill" /></a>
-                                </div>
-                              </div>
-                              <div className="col-md-6 col-lg-3 mb-3">
-                                <div className="user-images position-relative overflow-hidden">
-                                  <a href>
-                                    <img src="images/page-img/59.jpg" className="img-fluid rounded" alt="Responsive" />
-                                  </a>
-                                  <div className="image-hover-data">
-                                    <div className="product-elements-icon">
-                                      <ul className="d-flex align-items-center m-0 p-0 list-inline">
-                                        <li><a href className="pr-3 text-white"> 60 <i className="ri-thumb-up-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 30 <i className="ri-chat-3-line" /> </a></li>
-                                        <li><a href className="pr-3 text-white"> 10 <i className="ri-share-forward-line" /> </a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <a href className="image-edit-btn" data-toggle="tooltip" data-placement="top" title data-original-title="Edit or Remove"><i className="ri-edit-2-fill" /></a>
+                                  */}
                                 </div>
                               </div>
                             </div>

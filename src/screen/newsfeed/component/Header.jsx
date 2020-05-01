@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import {BrowserRouter,Link} from 'react-router-dom';
+import {BrowserRouter,} from 'react-router-dom';
 import { isAuthenticated, signout } from '../../auth';
 export default function({logo,user,noProfile,profile,}){
     return(

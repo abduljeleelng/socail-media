@@ -3,6 +3,7 @@ import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
 import {Header,Footer,Create,} from '../newsfeed/component';
 import logo from '../asset/img/logo.png';
+import noProfile from './img/profile.png'
 import {Cover,TimeLinePost, TimeLineEvent, Abouts, FriendList,Photos} from './component';
 import {postBy} from '../newsfeed/api';
 import {user} from './api'
@@ -92,7 +93,7 @@ export default class TimeLine extends Component {
 
   <div className="wrapper">
 
-    <Header logo={logo} user={user} />
+    <Header logo={logo} user={user} noProfile={noProfile} profile='' />
 
     <div id="content-page" className="content-page">
       <div className="container">
@@ -105,7 +106,10 @@ export default class TimeLine extends Component {
                 <div className="iq-card-body p-0">
                   <div className="row">
                     {/**Timline event  */}
+                    <ReactPlaceholder showLoadingAnimation type='media'  rows={7} ready={false}>
                     <TimeLineEvent />
+                    </ReactPlaceholder>
+                    
 
                     <div className="col-lg-8">
                       {/**create Post */}
@@ -122,8 +126,8 @@ export default class TimeLine extends Component {
               <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={this.state.ready}>
                  <Abouts about={about} />
               </ReactPlaceholder>
-              <FriendList />
-              <Photos />
+              <FriendList about={about} />
+              <Photos photo={``} />
             </div>
           </div>
           <div className="col-sm-12 text-center">
