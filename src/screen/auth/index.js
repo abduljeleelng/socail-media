@@ -73,7 +73,7 @@ export const isAuthenticated = () => {
 
 export const forgotPassword = email => {
     console.log("email: ", email);
-    return fetch(`${API}/forgot-password/`, {
+    return fetch(`${API}/forget/`, {
         method: "PUT",
         headers: {
             Accept: "application/json",
@@ -89,7 +89,7 @@ export const forgotPassword = email => {
 };
 
 export const resetPassword = resetInfo => {
-    return fetch(`${API}/reset-password/`, {
+    return fetch(`${API}/reset/`, {
         method: "PUT",
         headers: {
             Accept: "application/json",

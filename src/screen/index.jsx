@@ -1,6 +1,7 @@
 import SignUp from './users/Signup';
 import SignIn from './users/SignIn';
 import Forget from './users/Forget';
+import ResetPassword from './users/ResetPassword';
 /***news feed componet  */
 
 import Home from './newsfeed/Home';
@@ -11,4 +12,4 @@ import Home from './newsfeed/Home';
 import TimeLine from './timeline/TimeLine';
 
 
-export {SignUp,SignIn,Forget,Home,TimeLine,}
+export {SignUp,SignIn,Forget,Home,TimeLine,ResetPassword}

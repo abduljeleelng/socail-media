@@ -1,19 +1,19 @@
 import React, { Component, Fragment } from 'react';
-import { forgotPassword } from '../auth';
+import { resetPassword } from '../auth';
 import SweetAlert from 'sweetalert2-react';
-function validateEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
-export default class Forget extends Component {
+import { Redirect } from 'react-router-dom';
+
+export default class ResetPassword extends Component {
     constructor(props){
         super(props);
         this.state={
             loading:false,
             show:false,
             error:'',
-            email:'',
+            password:'',
+            password2:'',
             message:'',
+            resetPasswordLink:''
         }
     };
     handleChange=email=>e=>{
@@ -22,20 +22,27 @@ export default class Forget extends Component {
     handleReset=e=>{
         e.preventDefault();
         this.setState({loading:true});
-        const {email} = this.state;
-        if (validateEmail(email)){
-          forgotPassword(email).then(data=>{
+        const {password,password2,resetPasswordLink} = this.state;
+        const user = {resetPasswordLink,password2}
+        if (password === password2){
+            resetPassword(user).then(data=>{
             if(data===undefined)return this.setState({loading:false, error:"network error | Internal server Error"});
             if (data.error) return this.setState({loading:false,error:data.error});
             if (data.message) return this.setState({loading:false,message:data.message,show:true,});
             return  this.setState({loading:false,error:"Undentify Error, Conatct Web Admin"});
             })
+        }else{
+            return this.setState({error:"Password must match each other",loading:false});
         } 
-        return this.setState({error:"Enter valid email and Password",loading:false});
+        
+    }
+    componentDidMount(){
+        const token  = this.props.match.params.token;
+        this.setState({resetPasswordLink:token});
     }
     render() {
-        const {loading,error,email,message,show,}=this.state;
-       
+        const {loading,error,password,password2,message,show,redirecTo}=this.state;
+        if(redirecTo){return <Redirect to="/" />}
         return (
             <Fragment>
 <div>
@@ -43,7 +50,7 @@ export default class Forget extends Component {
         show={show}
         title="Notification"
         text={message}
-        onConfirm={() => this.setState({ show:false,message:''})}
+        onConfirm={() => this.setState({ show:false,message:'',redirecTo:true})}
 />
   <section className="sign-in-page">
     <div id="container-inside">
@@ -83,8 +90,12 @@ export default class Forget extends Component {
             <h5 className="text-danger">{error}</h5>
             <form className="mt-4">
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" onChange={this.handleChange('email')} value={email} className="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email" />
+                <label htmlFor="exampleInputEmail1">Password</label>
+                <input type="text" onChange={this.handleChange('password')} value={password} className="form-control mb-0" id="exampleInputEmail1" placeholder="Enter password" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Confirm Password</label>
+                <input type="text" onChange={this.handleChange('password2')} value={password2} className="form-control mb-0" id="exampleInputEmail1" placeholder="confirm password" />
               </div>
               <div className="d-inline-block w-100">
                 {
