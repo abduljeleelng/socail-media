@@ -62,8 +62,9 @@ export default class ResetPassword extends Component {
     </div>
     <div className="container p-0">
       <div className="row no-gutters">
-        <div className="col-md-6 text-center pt-5">
+      <div className="col-md-6 text-center pt-5">
           <div className="sign-in-detail text-white">
+            {/*
             <a className="sign-in-logo mb-5" href><img src="images/logo-full.png" className="img-fluid" alt="logo" /></a>
             <div className="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items={1} data-items-laptop={1} data-items-tab={1} data-items-mobile={1} data-items-mobile-sm={1} data-margin={0}>
               <div className="item">
@@ -82,6 +83,7 @@ export default class ResetPassword extends Component {
                 <p>It is a long established fact that a reader will be distracted by the readable content.</p>
               </div>
             </div>
+                  */}
           </div>
         </div>
         <div className="col-md-6 bg-white pt-5">
