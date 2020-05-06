@@ -23,7 +23,7 @@ export default class Setting extends Component {
   };
   handleChange=name=>event=>{
     this.setState({ error: "" });
-    const value = name === "photo" ? event.target.files[0] : event.target.value //|| name === "cover" ? event.target.files[0] : event.target.value ;
+    const value = name === "photo" ? event.target.files[0] : event.target.value; //|| name === "cover" ? event.target.files[0] : event.target.value ;
     //const value = name === "photo" ? event.target.files[0] : event.target.value;
     this.postData.set(name, value);
     this.setState({ [name]: value });

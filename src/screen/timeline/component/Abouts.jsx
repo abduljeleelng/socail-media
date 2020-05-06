@@ -18,6 +18,9 @@ export default function Abouts({about}) {
                           <li>
                             <a className="nav-link" data-toggle="pill" href="#details">Details About You</a>
                           </li>
+                          <li>
+                            <a className="nav-link" href="/user/setting">Account Seeting </a>
+                          </li>
                         </ul>
                       </div>
                       <div className="col-md-9 pl-4">
