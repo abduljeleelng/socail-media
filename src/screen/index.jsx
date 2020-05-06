@@ -10,6 +10,7 @@ import Home from './newsfeed/Home';
 /*** Timline  */
 
 import TimeLine from './timeline/TimeLine';
+import Setting from './timeline/Setting';
 
 
-export {SignUp,SignIn,Forget,Home,TimeLine,ResetPassword}
+export {SignUp,SignIn,Forget,ResetPassword,Home,TimeLine,Setting,}

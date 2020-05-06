@@ -54,14 +54,14 @@ export default class Signup extends Component {
           <Fragment>
  <div>
   <section className="sign-in-page">
-{ /*   <div id="container-inside">
+   <div id="container-inside">
       <div id="circle-small" />
       <div id="circle-medium" />
       <div id="circle-large" />
       <div id="circle-xlarge" />
       <div id="circle-xxlarge" />
     </div>
-        */}
+
 
 <SweetAlert
         show={show}

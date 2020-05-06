@@ -33,7 +33,8 @@ export default class SignIn extends Component {
             if (data.token){ return authenticate(data,()=>{ this.setState({user:data.user,redirecTo:true,email:"",password:"",loading:false}); })}
             return  this.setState({loading:false,error:"Undentify Error, Conatct Web Admin"});
             })
-        } 
+        }
+        else
         return this.setState({error:"Enter valid email and Password",loading:false});
       };
     render() {
@@ -42,10 +43,7 @@ export default class SignIn extends Component {
         //window.location.reload();
         return (
            
-              <section className="sign-in-page">
-                {
-                  /**
-                   *  
+              <section className="sign-in-page"> 
                 <div id="container-inside">
                   <div id="circle-small" />
                   <div id="circle-medium" />
@@ -53,8 +51,6 @@ export default class SignIn extends Component {
                   <div id="circle-xlarge" />
                   <div id="circle-xxlarge" />
                 </div>
-                   */
-                }
                 <div className="container ">
                   <div className="row ">
                     <div className="col-md-6 text-center ">
