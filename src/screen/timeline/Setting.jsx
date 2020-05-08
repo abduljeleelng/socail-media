@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import ReactPlaceholder from 'react-placeholder';
+//import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
-import {Header,Footer,Create,} from '../newsfeed/component';
+import {Header,Footer,} from '../newsfeed/component';
+import SweetAlert from 'sweetalert2-react';
 import logo from '../asset/img/logo.png';
 import noProfile from './img/profile.png'
-
-import {postBy} from '../newsfeed/api';
 import {user,update} from './api'
 import { isAuthenticated } from '../auth';
 
@@ -19,51 +18,76 @@ export default class Setting extends Component {
       photo:'',
       cover:'',
       fileSize: 0,
+      error:'',
+      show:false,
+      message:'',
+      email:'',
+      password:'',
+      password2:'',
+      username:'',
+      day:'',
+      month:'',
+      year:'',
     }
   };
+  componentDidMount(){
+    this.userData = new FormData();
+    this.setState({ user:isAuthenticated().user });
+    const userId = isAuthenticated().user._id;
+    if(!userId){this.setState({reDirect:true});}
+    user(userId).then(data=>{
+      if(data.error){return console.log(data.error)}
+      console.log(JSON.stringify({data}));
+      this.setState({
+        username:data.username,
+        email:data.email,
+        day:data.day,
+        month:data.month,
+        year:data.year,
+        about:data.about,
+        address:data.address,
+        phone:data.phone,
+        qoutes:data.qoutes,
+      })
+      this.setState({about:data})
+    })
+  }
+
   handleChange=name=>event=>{
     this.setState({ error: "" });
-    const value = name === "photo" ? event.target.files[0] : event.target.value; //|| name === "cover" ? event.target.files[0] : event.target.value ;
-    //const value = name === "photo" ? event.target.files[0] : event.target.value;
-    this.postData.set(name, value);
-    this.setState({ [name]: value });
+    const value = name === "photo" ? event.target.files[0] : event.target.value; // || name === "cover" ? event.target.files[0] : event.target.value ;
+    this.userData.set(name, value);
+    this.setState({ [name]: value});
   };
 
   handlePhotoUpdate=e=>{
     e.preventDefault();
     this.setState({loading:true});
     const token = isAuthenticated().token;
-    const userId = isAuthenticated().user._id
-    ///console.log(JSON.stringify({userId,token,}));
-    //this.postData
-    update(userId,token,this.postData).then(data=>{
-      if(data.error){
+    const userId = isAuthenticated().user._id;
+    update(userId,token,this.userData).then(data=>{
+      if(data.error){ 
         console.log(data);
-        this.setState({loading:false});
+        this.setState({loading:false,error:'error in uploading your profile | cover photo\n note your photo should not more than 10MB '});
      }
       else{
-        console.log(data);
-        this.setState({loading:false,gohome:true,title:"",body:"",photo:""});
+      
+        this.setState({ loading:false,gohome:true,cover:"",photo:"",message:data.message,show:true
+        });
       }
     })
   }
-  componentDidMount(){
-    this.postData = new FormData();
-    this.setState({ user:isAuthenticated().user });
-    const userId = isAuthenticated().user._id;
-    if(!userId){this.setState({reDirect:true});}
-    user(userId).then(data=>{
-      if(data.error){return console.log(data.error)}
-      this.setState({about:data})
-    })
+
+  handleUpdate=e=>{
+    e.preventDefault();
+    this.setState({loading:true})
   }
+
   componentDidUpdate(prevProps,prevState){
 
   }
     render() {
-      const {user,posts,about,loading,username,email,day,month,year}=this.state;
-     /// const {username,address,qoutes,following,followers,friends,_id,email,firstName,lastName,day,month,year,gender,country,created} = about
-      //console.log(JSON.stringify(about));
+      const {user,show,message,loading,username,email,password,password2,day,month,year,phone,address,about,qoutes,}=this.state;
         return (
             <Fragment>
 <div>
@@ -75,6 +99,12 @@ export default class Setting extends Component {
   <div className="wrapper">
 
     <Header logo={logo} user={user} noProfile={noProfile} profile='' />
+    <SweetAlert
+      show={show}
+      title="Notification"
+      text={message}
+      onConfirm={() => this.setState({ show:false,redirecTo:true})}
+    />
 
     <div id="content-page" className="content-page">
       <div className="container">
@@ -93,11 +123,19 @@ export default class Setting extends Component {
                         <form>
                             <div className="form-group">
                             <label htmlFor="uname">Username:</label>
-                            <input value={username} type="text" className="form-control" placeholder="username"  />
+                            <input value={username} onChange={this.handleChange("username")} type="text" className="form-control" placeholder="username"  />
                             </div>
                             <div className="form-group">
                             <label htmlFor="email">Email Id:</label>
-                            <input value={email} type="email"  className="form-control" />
+                            <input value={email} type="email" onChange={this.handleChange("email")}  className="form-control" />
+                            </div>
+                            <div className="form-group">
+                            <label htmlFor="email">Password</label>
+                            <input value={password} type="password" onChange={this.handleChange("password")}  className="form-control" placeholder="Password" />
+                            </div>
+                            <div className="form-group">
+                            <label htmlFor="email">Confirm Password</label>
+                            <input value={password2} type="password" onChange={this.handleChange("password2")}  className="form-control" placeholder="Confirm Password" />
                             </div>
                             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Date of Birth  </label>
@@ -166,7 +204,9 @@ export default class Setting extends Component {
                                 <label className="custom-control-label" htmlFor="english">English</label>
                             </div>
                             </div>
-                            <button type="submit" className="btn btn-primary">Update </button>
+                            {
+                              loading ? "loading.." : <button type="submit" onClick={this.handlePhotoUpdate} className="btn btn-primary">Update </button>
+                            }
                         </form>
                         </div>
                     </div>
@@ -210,13 +250,21 @@ export default class Setting extends Component {
                     <div className="iq-card-body">
                         <div className="acc-edit">
                         <form>
+                        <div className="form-group">
+                            <label htmlFor="uname">Phone Number :</label>
+                            <input value={phone} onChange={this.handleChange("phone")} type="text" className="form-control" placeholder="about"  />
+                            </div>
+                            <div className="form-group">
+                            <label htmlFor="uname">Address:</label>
+                            <input value={address} onChange={this.handleChange("address")} type="text" className="form-control" placeholder="about"  />
+                            </div>
                             <div className="form-group">
                             <label htmlFor="uname">about :</label>
-                            <input value="" type="text" className="form-control" placeholder="about"  />
+                            <input value={about} onChange={this.handleChange("about")} type="text" className="form-control" placeholder="about"  />
                             </div>
                             <div className="form-group">
                             <label htmlFor="email">Favourite Qoutes </label>
-                            <input value="" type="text"  className="form-control" />
+                            <input value={qoutes} onChange={this.handleChange("qoutes")} type="text"  className="form-control" />
                             </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </form>
